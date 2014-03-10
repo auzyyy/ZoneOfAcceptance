@@ -1,1 +1,10 @@
 C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\project2\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\bin\Debug\ZoneOfAcceptanceCalc.exe.config
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\bin\Debug\ZoneOfAcceptanceCalc.exe.config
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\bin\Debug\ZoneOfAcceptanceCalc.exe
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\bin\Debug\ZoneOfAcceptanceCalc.pdb
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\obj\Debug\ZoneOfAcceptanceCalc.csprojResolveAssemblyReference.cache
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\obj\Debug\ZoneOfAcceptanceCalc.Form1.resources
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\obj\Debug\ZoneOfAcceptanceCalc.Properties.Resources.resources
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\obj\Debug\ZoneOfAcceptanceCalc.csproj.GenerateResource.Cache
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\obj\Debug\ZoneOfAcceptanceCalc.exe
+C:\Users\awernli\Documents\Tenth Quarter\MAT410 - Discrete Structures\project 2\ZoneOfAcceptance\ZoneOfAcceptanceCalc\ZoneOfAcceptanceCalc\obj\Debug\ZoneOfAcceptanceCalc.pdb
