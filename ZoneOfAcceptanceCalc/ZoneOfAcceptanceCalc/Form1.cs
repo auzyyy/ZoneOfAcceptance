@@ -152,39 +152,55 @@ namespace ZoneOfAcceptanceCalc
             acceptance = GetErrorAcceptance();
             if (acceptance > 0)
             {
-                label_expVal.Text = expectedValue + "";
-                // find all other rows that can be added within range
-                double limit = 0;
+                /// Find all other rows that can be added within the range
+                #region Range Logic
+
+                double occuranceSum = 0;
                 int upIndex = 0;
                 int downIndex = 0;
 
+                List<int> toHighlight = new List<int>();
+                Color colorExpVal = Color.FromName("Green");
+                Color c = Color.FromName("SlateBlue");
+
                 upIndex = (int)expectedValue + 1;
-                double trun = doubleTruncate(expectedValue, 5);
-                bool isworking = isEven(trun);
+                listView_generatedValues.Items[(int)expectedValue].BackColor = colorExpVal;
+
                 if (isEven(doubleTruncate(expectedValue, 5)))
                 {
-                    limit = values[(int) expectedValue];
+                    occuranceSum = values[(int) expectedValue];
                 }
                 else
                 {
-                    limit = values[(int)expectedValue] + values[upIndex];
+                    occuranceSum = values[(int)expectedValue] + values[upIndex];
+                    listView_generatedValues.Items[(int)expectedValue].BackColor = colorExpVal;
                     upIndex++;
                 }
                 downIndex = (int)expectedValue - 1;
 
                 double maxLimit = 1 - errorAcceptance;  // .95
 
-                while(limit < maxLimit)
+                while(occuranceSum < maxLimit)
                 {
-                    limit += values[upIndex] + values[downIndex];
+                    occuranceSum += values[upIndex] + values[downIndex];
+                    toHighlight.Add(upIndex);
+                    toHighlight.Add(downIndex);
                     upIndex++;
                     downIndex--;
                 }
                 label_ValueRange.Text = downIndex + " - " + upIndex;
-                label_Sum.Text = limit + "";
+                label_Sum.Text = occuranceSum + "";
+
+                // Set Highlighted Color
+                // http://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx
+                foreach (int x in toHighlight)
+                {
+                    listView_generatedValues.Items[x].BackColor = c;
+                }
 
                 // now highliight that shit and be down with this gayness
                 //listView_generatedValues.get
+                #endregion
             }
             else {/* blow the fuck up */ }
                 
