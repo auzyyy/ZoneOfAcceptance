@@ -35,9 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button_GenerateValues = new System.Windows.Forms.Button();
             this.label_Error = new System.Windows.Forms.Label();
-            this.dataGridView_generatedValues = new System.Windows.Forms.DataGridView();
             this.listView_generatedValues = new System.Windows.Forms.ListView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_generatedValues)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_Trials
@@ -101,21 +99,14 @@
             this.label_Error.Size = new System.Drawing.Size(0, 13);
             this.label_Error.TabIndex = 7;
             // 
-            // dataGridView_generatedValues
-            // 
-            this.dataGridView_generatedValues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_generatedValues.Location = new System.Drawing.Point(393, 9);
-            this.dataGridView_generatedValues.Name = "dataGridView_generatedValues";
-            this.dataGridView_generatedValues.Size = new System.Drawing.Size(240, 593);
-            this.dataGridView_generatedValues.TabIndex = 8;
-            // 
             // listView_generatedValues
             // 
-            this.listView_generatedValues.Location = new System.Drawing.Point(266, 9);
+            this.listView_generatedValues.Location = new System.Drawing.Point(418, 9);
             this.listView_generatedValues.Name = "listView_generatedValues";
-            this.listView_generatedValues.Size = new System.Drawing.Size(121, 580);
+            this.listView_generatedValues.Size = new System.Drawing.Size(215, 580);
             this.listView_generatedValues.TabIndex = 9;
             this.listView_generatedValues.UseCompatibleStateImageBehavior = false;
+            this.listView_generatedValues.View = System.Windows.Forms.View.List;
             // 
             // Form1
             // 
@@ -123,7 +114,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 614);
             this.Controls.Add(this.listView_generatedValues);
-            this.Controls.Add(this.dataGridView_generatedValues);
             this.Controls.Add(this.label_Error);
             this.Controls.Add(this.button_GenerateValues);
             this.Controls.Add(this.label3);
@@ -133,7 +123,6 @@
             this.Controls.Add(this.textBox_Trials);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_generatedValues)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,7 +137,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button_GenerateValues;
         private System.Windows.Forms.Label label_Error;
-        private System.Windows.Forms.DataGridView dataGridView_generatedValues;
         private System.Windows.Forms.ListView listView_generatedValues;
     }
 }
