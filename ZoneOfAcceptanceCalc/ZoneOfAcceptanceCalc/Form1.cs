@@ -14,22 +14,33 @@ namespace ZoneOfAcceptanceCalc
     {
         private double expectedValue = 0;
         private double acceptance = .5;
+        private double errorAcceptance = 0;
+        private double[] values;
+        private int trials = 0;
+        private double probability = 0.0;
 
         public Form1()
         {
             InitializeComponent();
+
+            // Debugging n shit
+            textBox_Trials.Text = "84";
+            textBox_Probability.Text = "1/6";
+            textBox_ErrorAcceptance.Text = ".05";
         }
 
         private void button_GenerateValues_Click(object sender, EventArgs e)
         {
-            int trials = GetTrialCount();
-            double probability = GetFairProbability();
+            trials = GetTrialCount();
+            probability = GetFairProbability();
             expectedValue = trials * probability;
             listView_generatedValues.Items.Clear();
+            values = new double[trials + 1];
             if (trials >= 0 && probability >= 0)
             {
                 DisplayValues(trials, probability);
             }
+            panel_ZoneAcceptanceInfo.Visible = true;
         }
 
         private void InitZoneAcceptanceInfoPanel()
@@ -44,7 +55,9 @@ namespace ZoneOfAcceptanceCalc
         {
             for (int i = 0; i <= trials; i++)
             {
-                string itemString = i + "      " + GetProbability(trials, i, probability, 1-probability);
+                values[i] = GetProbability(trials, i, probability, 1 - probability);
+                string itemString = i + "      " + values[i];
+                //string itemString = i + "      " + GetProbability(trials, i, probability, 1-probability);
                 listView_generatedValues.Items.Add(itemString);
             }
 
@@ -58,14 +71,13 @@ namespace ZoneOfAcceptanceCalc
         #region textbox getters with errors
         private double GetErrorAcceptance()
         {
-            double errorAcceptance = 0;
             try
             {
                 errorAcceptance = double.Parse(textBox_ErrorAcceptance.Text);
             }
             catch (FormatException)
             {
-                DisplayError("Please enter a valid number for error acceptance");
+                DisplayError("Please enter a valid number for error acceptance. Enter 5 for 5%");
                 return -1;
             }
             return errorAcceptance;
@@ -140,8 +152,58 @@ namespace ZoneOfAcceptanceCalc
             acceptance = GetErrorAcceptance();
             if (acceptance > 0)
             {
+                label_expVal.Text = expectedValue + "";
+                // find all other rows that can be added within range
+                double limit = 0;
+                int upIndex = 0;
+                int downIndex = 0;
 
+                upIndex = (int)expectedValue + 1;
+                double trun = doubleTruncate(expectedValue, 5);
+                bool isworking = isEven(trun);
+                if (isEven(doubleTruncate(expectedValue, 5)))
+                {
+                    limit = values[(int) expectedValue];
+                }
+                else
+                {
+                    limit = values[(int)expectedValue] + values[upIndex];
+                    upIndex++;
+                }
+                downIndex = (int)expectedValue - 1;
+
+                double maxLimit = 1 - errorAcceptance;  // .95
+
+                while(limit < maxLimit)
+                {
+                    limit += values[upIndex] + values[downIndex];
+                    upIndex++;
+                    downIndex--;
+                }
+                label_ValueRange.Text = downIndex + " - " + upIndex;
+                label_Sum.Text = limit + "";
+
+                // now highliight that shit and be down with this gayness
+                //listView_generatedValues.get
             }
+            else {/* blow the fuck up */ }
+                
+        }
+
+        private bool isEven(double x)
+        {
+            // return true unless tenths is >= .5
+            int whole = (int)x;
+            double remainder = x - whole;
+            return remainder < .5;
+        }
+
+        private double doubleTruncate(double x, int toDecimal)
+        {
+            toDecimal = (int) Math.Pow(10, toDecimal);
+            // 2.123456789 trun to 2.12345
+            int trunc = (int) x * toDecimal;
+            return trunc / toDecimal;
         }
 
     }
