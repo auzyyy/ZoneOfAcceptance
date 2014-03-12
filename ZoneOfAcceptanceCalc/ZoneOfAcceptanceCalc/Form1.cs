@@ -32,11 +32,19 @@ namespace ZoneOfAcceptanceCalc
             }
         }
 
+        private void InitZoneAcceptanceInfoPanel()
+        {
+            panel_ZoneAcceptanceInfo.Visible = true;
+            label_Sum.Text = "";
+            label_ValueRange.Text = "";
+            textBox_ErrorAcceptance.Text = "";
+        }
+
         private void DisplayValues(int trials, double probability)
         {
             for (int i = 0; i <= trials; i++)
             {
-                string itemString = i + "      " + Math.Round(GetProbability(trials, i, probability, 1-probability),6);
+                string itemString = i + "      " + GetProbability(trials, i, probability, 1-probability);
                 listView_generatedValues.Items.Add(itemString);
             }
 
@@ -45,6 +53,22 @@ namespace ZoneOfAcceptanceCalc
         private double GetProbability(int n, int k, double p, double q)
         {
             return GetChooseValue(n, k) * Math.Pow(p, k) * Math.Pow(q, n - k);
+        }
+
+        #region textbox getters with errors
+        private double GetErrorAcceptance()
+        {
+            double errorAcceptance = 0;
+            try
+            {
+                errorAcceptance = double.Parse(textBox_ErrorAcceptance.Text);
+            }
+            catch (FormatException)
+            {
+                DisplayError("Please enter a valid number for error acceptance");
+                return -1;
+            }
+            return errorAcceptance;
         }
 
         private int GetTrialCount()
@@ -89,6 +113,7 @@ namespace ZoneOfAcceptanceCalc
             }
             return probability;
         }
+#endregion
 
         private void DisplayError(string message)
         {
@@ -109,5 +134,15 @@ namespace ZoneOfAcceptanceCalc
             }
             return result;
         }
+
+        private void button_FindZoneAcceptance_Click(object sender, EventArgs e)
+        {
+            acceptance = GetErrorAcceptance();
+            if (acceptance > 0)
+            {
+
+            }
+        }
+
     }
 }

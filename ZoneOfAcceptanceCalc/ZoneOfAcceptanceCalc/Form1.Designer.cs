@@ -36,6 +36,16 @@
             this.button_GenerateValues = new System.Windows.Forms.Button();
             this.label_Error = new System.Windows.Forms.Label();
             this.listView_generatedValues = new System.Windows.Forms.ListView();
+            this.panel_ZoneAcceptanceInfo = new System.Windows.Forms.Panel();
+            this.textBox_ErrorAcceptance = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button_FindZoneAcceptance = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label_ValueRange = new System.Windows.Forms.Label();
+            this.label_Sum = new System.Windows.Forms.Label();
+            this.panel_ZoneAcceptanceInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_Trials
@@ -101,18 +111,106 @@
             // 
             // listView_generatedValues
             // 
-            this.listView_generatedValues.Location = new System.Drawing.Point(418, 9);
+            this.listView_generatedValues.Location = new System.Drawing.Point(204, 9);
             this.listView_generatedValues.Name = "listView_generatedValues";
-            this.listView_generatedValues.Size = new System.Drawing.Size(215, 580);
+            this.listView_generatedValues.Size = new System.Drawing.Size(429, 580);
             this.listView_generatedValues.TabIndex = 9;
             this.listView_generatedValues.UseCompatibleStateImageBehavior = false;
             this.listView_generatedValues.View = System.Windows.Forms.View.List;
+            // 
+            // panel_ZoneAcceptanceInfo
+            // 
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.label_Sum);
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.label_ValueRange);
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.label7);
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.label6);
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.button_FindZoneAcceptance);
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.label5);
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.label4);
+            this.panel_ZoneAcceptanceInfo.Controls.Add(this.textBox_ErrorAcceptance);
+            this.panel_ZoneAcceptanceInfo.Location = new System.Drawing.Point(5, 103);
+            this.panel_ZoneAcceptanceInfo.Name = "panel_ZoneAcceptanceInfo";
+            this.panel_ZoneAcceptanceInfo.Size = new System.Drawing.Size(193, 206);
+            this.panel_ZoneAcceptanceInfo.TabIndex = 10;
+            this.panel_ZoneAcceptanceInfo.Visible = false;
+            // 
+            // textBox_ErrorAcceptance
+            // 
+            this.textBox_ErrorAcceptance.Location = new System.Drawing.Point(102, 31);
+            this.textBox_ErrorAcceptance.Name = "textBox_ErrorAcceptance";
+            this.textBox_ErrorAcceptance.Size = new System.Drawing.Size(86, 20);
+            this.textBox_ErrorAcceptance.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Error acceptance";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(71, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(25, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Info";
+            // 
+            // button_FindZoneAcceptance
+            // 
+            this.button_FindZoneAcceptance.Location = new System.Drawing.Point(26, 180);
+            this.button_FindZoneAcceptance.Name = "button_FindZoneAcceptance";
+            this.button_FindZoneAcceptance.Size = new System.Drawing.Size(139, 23);
+            this.button_FindZoneAcceptance.TabIndex = 11;
+            this.button_FindZoneAcceptance.Text = "Find Zone of Acceptance";
+            this.button_FindZoneAcceptance.UseVisualStyleBackColor = true;
+            this.button_FindZoneAcceptance.Click += new System.EventHandler(this.button_FindZoneAcceptance_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Value Range: ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Sum: ";
+            // 
+            // label_ValueRange
+            // 
+            this.label_ValueRange.AutoSize = true;
+            this.label_ValueRange.Location = new System.Drawing.Point(88, 91);
+            this.label_ValueRange.Name = "label_ValueRange";
+            this.label_ValueRange.Size = new System.Drawing.Size(35, 13);
+            this.label_ValueRange.TabIndex = 15;
+            this.label_ValueRange.Text = "label8";
+            // 
+            // label_Sum
+            // 
+            this.label_Sum.AutoSize = true;
+            this.label_Sum.Location = new System.Drawing.Point(88, 104);
+            this.label_Sum.Name = "label_Sum";
+            this.label_Sum.Size = new System.Drawing.Size(35, 13);
+            this.label_Sum.TabIndex = 16;
+            this.label_Sum.Text = "label9";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 614);
+            this.Controls.Add(this.panel_ZoneAcceptanceInfo);
             this.Controls.Add(this.listView_generatedValues);
             this.Controls.Add(this.label_Error);
             this.Controls.Add(this.button_GenerateValues);
@@ -123,6 +221,8 @@
             this.Controls.Add(this.textBox_Trials);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.panel_ZoneAcceptanceInfo.ResumeLayout(false);
+            this.panel_ZoneAcceptanceInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +238,15 @@
         private System.Windows.Forms.Button button_GenerateValues;
         private System.Windows.Forms.Label label_Error;
         private System.Windows.Forms.ListView listView_generatedValues;
+        private System.Windows.Forms.Panel panel_ZoneAcceptanceInfo;
+        private System.Windows.Forms.TextBox textBox_ErrorAcceptance;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button_FindZoneAcceptance;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_Sum;
+        private System.Windows.Forms.Label label_ValueRange;
     }
 }
 
