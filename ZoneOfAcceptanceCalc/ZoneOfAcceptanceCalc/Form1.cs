@@ -166,14 +166,16 @@ namespace ZoneOfAcceptanceCalc
                 upIndex = (int)expectedValue + 1;
                 listView_generatedValues.Items[(int)expectedValue].BackColor = colorExpVal;
 
-                if (isEven(doubleTruncate(expectedValue, 5)))
+                if (Math.Round(expectedValue,2) == (int)expectedValue)
                 {
-                    occuranceSum = values[(int) expectedValue];
+                    Console.WriteLine("Equals");
+                    occuranceSum = values[(int)expectedValue];
                 }
                 else
                 {
+                    Console.WriteLine("not equals");
                     occuranceSum = values[(int)expectedValue] + values[upIndex];
-                    listView_generatedValues.Items[(int)expectedValue].BackColor = colorExpVal;
+                    listView_generatedValues.Items[upIndex].BackColor = colorExpVal;
                     upIndex++;
                 }
                 downIndex = (int)expectedValue - 1;
@@ -188,8 +190,9 @@ namespace ZoneOfAcceptanceCalc
                     upIndex++;
                     downIndex--;
                 }
-                label_ValueRange.Text = downIndex + " - " + upIndex;
+                label_ValueRange.Text = (downIndex + 1) + " - " + (upIndex - 1);
                 label_Sum.Text = occuranceSum + "";
+                label_expVal.Text = Math.Round(expectedValue,2) + "";
 
                 // Set Highlighted Color
                 // http://msdn.microsoft.com/en-us/library/system.drawing.color(v=vs.110).aspx
@@ -211,6 +214,7 @@ namespace ZoneOfAcceptanceCalc
             // return true unless tenths is >= .5
             int whole = (int)x;
             double remainder = x - whole;
+            Console.WriteLine("remainder: " + remainder);
             return remainder < .5;
         }
 
